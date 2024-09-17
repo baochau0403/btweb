@@ -55,12 +55,14 @@ public class RegisterController extends HttpServlet {
 		if (service.checkExistEmail(email)) {
 			alertMsg = "Email đã tồn tại!";
 			req.setAttribute("alert", alertMsg);
+			System.out.println("mail tồn tại");
 			req.getRequestDispatcher("/register.jsp").forward(req, resp);
 			return;
 		}
 		if (service.checkExistUsername(username)) {
 			alertMsg = "Tài khoản đã tồn tại!";
 			req.setAttribute("alert", alertMsg);
+			System.out.println("Tài khoản tồn tại");
 			req.getRequestDispatcher("register.jsp").forward(req, resp);
 			return;
 			}
@@ -73,6 +75,7 @@ public class RegisterController extends HttpServlet {
 			resp.sendRedirect(req.getContextPath() + "/login");
 		} else {
 			alertMsg = "System error!";
+			System.out.println("System error");
 			req.setAttribute("alert", alertMsg);
 			req.getRequestDispatcher("register.jsp").forward(req, resp);
 		}

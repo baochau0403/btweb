@@ -72,27 +72,27 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
 	@Override
 	public void insert(UserModel baochau) {
 
-		String sql = "INSERT INTO baochau(id, username, email, password, fullname, images, phone, roleid, createdate) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)";
+		String sql = "INSERT INTO baochau(username, email, password, fullname, images, phone, roleid) VALUES (?, ?, ?, ?, ?, ?, ?)";
 
 		try {
 			Connection conn = super.getDatabaseConnection();
 
 			Object ps = conn.prepareStatement(sql);
 
-			((PreparedStatement) ps).setInt(1, baochau.getId());
-			((PreparedStatement) ps).setString(2, baochau.getUsername());
-			((PreparedStatement) ps).setString(3, baochau.getEmail());
-			((PreparedStatement) ps).setString(4, baochau.getPassword());
-			((PreparedStatement) ps).setString(5, baochau.getFullname());
-			((PreparedStatement) ps).setString(6, baochau.getImages());
-			
-
+			((PreparedStatement) ps).setString(1, baochau.getUsername());
+			((PreparedStatement) ps).setString(2, baochau.getEmail());
+			((PreparedStatement) ps).setString(3, baochau.getPassword());
+			((PreparedStatement) ps).setString(4, baochau.getFullname());
+			((PreparedStatement) ps).setString(5, baochau.getImages());
+			((PreparedStatement) ps).setString(6, baochau.getPhone());
+			((PreparedStatement) ps).setInt(7, baochau.getRoleid());
 			((PreparedStatement) ps).executeUpdate();
 
 		} catch (Exception e) {
 			e.printStackTrace();
 		}
 	}
+
 
 	public static void main(String[] args) {
 		try {
@@ -175,15 +175,16 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
 			ps = conn.prepareStatement(sql);
 			ps.setString(1, email);
 			rs = ps.executeQuery();
-			while (rs.next()) {
+			if (rs.next()) {
+				System.out.println(1);
 				oneUser.setId(rs.getInt("id"));
 				oneUser.setUsername(rs.getString("username"));
 				oneUser.setFullname(rs.getString("fullname"));
 				oneUser.setEmail(rs.getString("email"));
 				oneUser.setPassword(rs.getString("password"));
 				oneUser.setImages(rs.getString("images"));
+				return oneUser;
 			}
-			return oneUser;
 		} catch (Exception e) {
 			e.printStackTrace();
 		} finally {
