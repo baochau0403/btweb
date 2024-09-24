@@ -10,7 +10,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f3f3f3;
+            background-color: #C1D8C3;
             margin: 0;
             padding: 0;
             display: flex;
@@ -20,7 +20,7 @@
         }
 
         .main {
-            background-color: #fff;
+            background-color: #F5EFE6;
             border-radius: 15px;
             box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
             padding: 20px;
@@ -28,7 +28,7 @@
         }
 
         .main h2 {
-            color: #4caf50;
+            color: #6A9C89;
             margin-bottom: 20px;
         }
 
@@ -55,7 +55,7 @@
             padding: 15px;
             border-radius: 10px;
             border: none;
-            background-color: #4caf50;
+            background-color: #6A9C89;
             color: white;
             cursor: pointer;
             width: 100%;
@@ -66,7 +66,7 @@
 
 <body>
     <div class="main">
-        <h2>Đăng kí</h2>
+        <h2>Register</h2>
         <form action="register" method="post">
             <label for="first">Tên đăng nhập: </label>
             <input type="text" id="username" name="username" required />

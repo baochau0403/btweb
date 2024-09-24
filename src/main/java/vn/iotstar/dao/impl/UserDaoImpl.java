@@ -56,8 +56,8 @@ public class UserDaoImpl extends DBConnectMySQL implements IUserDao {
 			ResultSet rs = ps.executeQuery();
 
 			while (rs.next()) {
-				UserModel model1 = new UserModel(rs.getInt("id"), rs.getString("username"), rs.getString("password"),
-						rs.getString("email"), rs.getString("fullname"), rs.getString("images"), rs.getString("phone"),
+				UserModel model1 = new UserModel(rs.getInt("id"), rs.getString("username"), rs.getString("email"),
+						rs.getString("password"), rs.getString("fullname"), rs.getString("images"), rs.getString("phone"),
 						rs.getInt("roleid"), rs.getDate("createdate"));
 				list.add(model1);
 			}
