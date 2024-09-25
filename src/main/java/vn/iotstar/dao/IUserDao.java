@@ -27,4 +27,6 @@ public interface IUserDao {
 	boolean changePasswordByMail(String mail, String password);
 
 	void updatePassword(String email, String password);
+	
+	boolean update(UserModel user);
 }
