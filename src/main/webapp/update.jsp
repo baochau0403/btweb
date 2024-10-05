@@ -3,7 +3,7 @@
     
          <!-- BEGIN CONTENT -->
           <div class="col-md-9 col-sm-9">
-            <h1>Login</h1>
+            <h1>Update</h1>
             <div class="content-form-page">
               <div class="row">
                 <div class="col-md-7 col-sm-7">
@@ -12,7 +12,7 @@
 				<h3 class="alert alert danger">${alert}</h3>
 				</c:if>
 				
-                  <form action="${pageContext.request.contextPath}/update" method="post" class="form-horizontal form-without-legend" role="form">
+                  <form action="${pageContext.request.contextPath}/update" method="post" class="form-horizontal form-without-legend" role="form" enctype="multipart/form-data">
                     <div class="form-group">
                       <label for="fullname" class="col-lg-4 control-label">Full Name<span class="require">*</span></label>
                       <div class="col-lg-8">
@@ -34,6 +34,12 @@
                     </div>
                     <div class="row">
                    
+                    </div>
+                    <div>
+                    <input type="file" name="multiPartServlet"/>
+					<input type="submit" value="Upload"/>
+
+                    
                     </div>
                     
                   </form>
